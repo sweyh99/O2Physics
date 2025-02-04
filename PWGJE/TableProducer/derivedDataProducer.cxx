@@ -308,7 +308,7 @@ struct JetDerivedDataProducerTask {
 
   void processTracksRun2(soa::Join<aod::Tracks, aod::TracksExtra, aod::TracksCov, aod::TracksDCA, aod::TrackSelection, aod::TrackSelectionExtension>::iterator const& track)
   {
-    //TracksDCACov table is not yet available for Run 2 converted data. Remove this process function and use only processTracks when that becomes available. 
+    // TracksDCACov table is not yet available for Run 2 converted data. Remove this process function and use only processTracks when that becomes available.
     products.jTracksTable(track.collisionId(), track.pt(), track.eta(), track.phi(), jetderiveddatautilities::setTrackSelectionBit(track, track.dcaZ(), dcaZMax));
     float sigmaDCAXYZ2 = 0.0;
     float dcaXYZ = getDcaXYZ(track, &sigmaDCAXYZ2);
